@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<div ng-include="'web/features/intelligence/detail/h5topview.html'"></div>
+<div class="middiv">
+    <div class="JobDetailsTop row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7 marginLeft30px">
+            <div class="JobPublicDept OverflowEllipsis">{{newsDetails.companyName}}发布</div>
+            <div class="NewsItemLabels margintop20px">
+                <span class="labelgreenradius20 marginRight15px">园区新闻公告</span>
+                <span class="labelgreenradius20 marginRight15px">{{newsDetails.companyName}}</span>
+            </div>
+            <div class="NewsTitle OverflowEllipsis margintop10px">
+                {{newsDetails.newsTitle}}
+            </div>
+            <div class="JobInformationMid margintop30px">
+                {{newsDetails.publicDate}} 发布
+            </div>
+            <!-- 发布时间 -->
+        </div>
+        <div class="col-xs-3"></div>
+        <div class="col-xs-1"></div>
+    </div>
+    <!-- 工作详情页——头 -->
+    <div class="NewsDetailsMid row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7 marginLeft30px borderrightdashed">
+            <div class="margintop30px" ng-bind-html="newsDetails.newsContent">
+
+            </div>
+            <!-- 新闻内容 -->
+        </div>
+        <div class="col-xs-3 paddingleft30px">
+            <h3>热点新闻</h3>
+            <br />
+            <div class="HotNewsItem">
+                <div class="font16gray3line35 OverflowEllipsis" style="cursor: pointer;">
+                    关于召开2017年夏季招聘会通知
+                </div>
+                <!-- 新闻标题 -->
+                <div class="font14gray6 OverflowEllipsis">
+                    天津产业园区
+                </div>
+                <!-- 发布公司名称 -->
+            </div>
+            <div class="HotNewsItem">
+                <div class="font16gray3line35 OverflowEllipsis">
+                    天津互联网有限公司拟定2017年7月23日在园区进行现场招聘
+                </div>
+                <!-- 新闻标题 -->
+                <div class="font14gray6 OverflowEllipsis">
+                    天津互联网有限公司
+                </div>
+                <!-- 发布公司名称 -->
+            </div>
+            <div class="HotNewsItem">
+                <div class="font16gray3line35 OverflowEllipsis">
+                    响应天津市政府号召，天津产业园区正积极扩大规模，现正向全社会范围内吸纳企业入驻
+                </div>
+                <!-- 新闻标题 -->
+                <div class="font14gray6 OverflowEllipsis">
+                    天津产业园区
+                </div>
+                <!-- 发布公司名称 -->
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <!-- 工作详情页——中 -->
+</div>
+<div ng-include="'web/features/intelligence/detail/h5bottomview.html'"></div>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<div class="topdiv" ng-controller="H5TopViewController">
+    <div class="headpicdiv">
+        <img src="assets/images/headpic.jpg" class="headpicimg" href="javascript:;"/>
+    </div>
+    <div class="headblack">
+        <div class="row">
+            <div class="col-xs-2" style="padding-left: 50px;">
+                <span class="headspan" ng-click="switchUser()" style="cursor: pointer;">切换用户/登录</span>
+            </div>
+            <div class="col-xs-7"></div>
+            <div class="col-xs-3" style="padding-left: 20px;" ng-if="isLogin">
+                <span class="headspan" style="position: relative;" ng-click="showMessage()">
+                    <span style="cursor: pointer; ">消息</span>
+                    <i ng-show="messageList.length>0" class="icon icon-exclamation-sign"
+                                     style="color: #FF4A53;"></i>
+                    <div style="width: 300px; margin-right: 40px; background-color: #FAFAFA; position: absolute; z-index: 1000;"
+                         ng-show="messageShow" align="right">
+                        <div class="MessageContent">
+                            <div class="messageItem" ng-repeat="msg in messageList">
+                                <div ng-if="msg.content.split('&:&:&')[0].split('$type$')[1]=='reply'" align="left" class="row">
+                                    <div class="col-xs-8 OverflowEllipsis font14black">
+                                        {{msg.content.split('&:&:&')[1].split('$message$')[1]}}
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <label ng-click="readMessage(msg.id, 'reply', msg.content.split('&:&:&')[2].split('$id$')[1])"
+                                               style="cursor:pointer; color: #00B38A; text-decoration: blink;">去查看！</label>
+                                    </div>
+                                </div>
+                                <div ng-if="msg.content.split('&:&:&')[0].split('$type$')[1]=='interview'" align="left" class="row">
+                                    <div class="col-xs-8 OverflowEllipsis">
+                                        {{msg.content.split('&:&:&')[1].split('$message$')[1]}}
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <label ng-click="readMessage(msg.id, 'interview', msg.content.split('&:&:&')[2].split('$id$')[1])"
+                                               style="cursor:pointer; color: #00B38A; text-decoration: blink;">我知道了！</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <span class="headspan">|</span>
+                <span class="headspan" style="cursor: pointer;">我的简历</span>
+                <span class="headspan">|</span>
+                <span class="headspan" style="cursor: pointer;">投递箱</span>
+                <span class="headspan">|</span>
+                <span class="headspan" style="cursor: pointer;" ng-click="toPersonalPage()">个人中心</span>
+            </div>
+            <div class="col-xs-3" style="padding-left: 20px;" ng-if="!isLogin">
+                <span class="headspan" ng-click="toRegisterPage()" style="cursor: pointer;">注册</span>
+                <span class="headspan">|</span>
+                <span class="headspan" ng-click="toLoginPage()" style="cursor: pointer;">登录</span>
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2 marginLeft30px">
+                <span class="navspan"><img src="" class="navicon"/></span>
+                <span class="navspan"><font class="fontstyle">天津站</font></span>
+            </div>
+            <div class="col-xs-8 marginLeft15px">
+                <ul class="nav nav-secondary navspan" style="margin-bottom: 0px;">
+                    <li class="marginLeft30px" ng-class="{'active':show[0], '':!show[0]}">
+                        <a href="javascript:;" ng-click="toHomePage()" style="padding: 0px 10px;">首页</a>
+                    </li>
+                    <li class="marginLeft30px" ng-class="{'active':show[1], '':!show[1]}">
+                        <a href="javascript:;" ng-click="toNewsPage()" style="padding: 0px 10px;">公告</a>
+                    </li>
+                    <li class="marginLeft30px" ng-class="{'active':show[2], '':!show[2]}">
+                        <a href="javascript:;" ng-click="toAboutMe()" style="padding: 0px 10px;">关于</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-1"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<div ng-include="'web/features/intelligence/detail/h5topview.html'"></div>
+<div class="middiv">
+    <div class="SearchResult row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-8">
+            <div class="paddingtop30px">
+                <a class="btn btn-primary" href="javascript:;">职位 (500+) </a>
+            </div>
+            <div class="margintop20px">
+                <div class="input-group">
+                    <input type="text" class="form-control" style="height: 43px;" ng-model="jobName">
+                    <span class="input-group-btn">
+								&nbsp;
+                    </span>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-lg searchbutton130" type="button" ng-click="research('', 'key', '', 0)">搜索工作名称</button>
+                    </span>
+                </div>
+            </div>
+            <div class="HotSearch">
+                <span>热门搜索：</span>
+                <a class="HotSearchContent" href="javascript:;">Java</a>
+            </div>
+            <!-- 热门搜索  -->
+        </div>
+        <div class="col-xs-3"></div>
+    </div>
+    <div class="ScreenConditions row margintop30px">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-8">
+            <div class="Conditions">
+                <div class="ConditionsAddress">
+                    <span class="font14blodblack">工作地点:&nbsp;</span>
+                    <span class="font14gray6">天津市西青区园区</span>
+                </div>
+                <div class="OtherConditions">
+                    <div>
+                        <span class="font14blodblack">工作经验:</span>
+                        <span class="font14gray6">
+                            <a class="font14gray6active" href="javascript:;" style="text-decoration: none;">不限</a>
+                        </span>
+                        <span class="font14gray6" ng-repeat="item in workExperienceStrs">
+                            <a ng-class="{'font14gray6active':item.show, 'font14gray6none':!item.show}"
+                               href="javascript:;" style="text-decoration: none;"
+                               ng-click="research(item.str, 'workExperience', $index, 0)">{{item.str}}</a>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="font14blodblack">学历要求:</span>
+                        <span class="font14gray6">
+                            <a class="font14gray6active" href="javascript:;" style="text-decoration: none;">不限</a>
+                        </span>
+                        <span class="font14gray6" ng-repeat="item in educationStrs">
+                            <a ng-class="{'font14gray6active':item.show, 'font14gray6none':!item.show}"
+                               href="javascript:;" style="text-decoration: none;"
+                               ng-click="research(item.str, 'education', $index, 0)">{{item.str}}</a>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="font14blodblack">行业邻域:</span>
+                        <span class="font14gray6">
+                            <a class="font14gray6active" href="javascript:;" style="text-decoration: none;">不限</a>
+                        </span>
+                        <span class="font14gray6" ng-repeat="item in workstypeStrs">
+                            <a ng-class="{'font14gray6active':item.show, 'font14gray6none':!item.show}"
+                               href="javascript:;" style="text-decoration: none;"
+                               ng-click="research(item.str, 'worktype', $index, 0)">{{item.str}}</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- 查询条件 -->
+                <div class="OrderRegulation">
+                    <div>
+                        <span class="font14blodblack">排序方式:</span>
+                        <span class="font14gray6">
+                            <a class="font14gray6active" href="#" style="text-decoration: none;">默认</a>
+                            <a class="font14gray6none" href="#" style="text-decoration: none;">最新</a>
+                        </span>
+                        <span class="font14blodblack marginLeft30px">月薪:</span>
+                        <span class="font14gray6">
+                            <select class="" style="width: 100px;" ng-model="jobSalary"
+                                    ng-change="research('','salary','',0)">
+                                <option value="2K及以下">2K及以下</option>
+                                <option value="2K-5K">2K-5K</option>
+                                <option value="5K-10K">5K-10K</option>
+                                <option value="10K-15K">10K-15K</option>
+                            </select>
+                        </span>
+                        <span class="font14blodblack marginLeft30px">工作性质:</span>
+                        <span class="font14gray6">
+                            <select style="width: 100px;" ng-model="workPosition" ng-change="research('','type','',0)">
+                                <option value="全职">全职</option>
+                                <option value="兼职">兼职</option>
+                                <option value="实习">实习</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- /条件 -->
+            <div class="ScreenResults">
+                <div class="JobImformation row" ng-repeat="jobItem in jobObj.jobList">
+                    <div class="col-xs-10">
+                        <div class="JobImformationTitle row">
+                            <div class="JobInformationLeft col-xs-4" style="cursor: pointer;"
+                                 ng-click="toJobDetail(jobItem)">{{jobItem.jobName}}
+                            </div>
+                            <div class="JobInformationMid col-xs-4">{{jobItem.publishTime}}</div>
+                            <div class="JobInformationRight col-xs-4" ng-click="toCompanyPage(jobItem.companyId)">{{jobItem.companyName}}</div>
+                        </div>
+                        <div class="JobImformationContent row">
+                            <div class=" col-xs-4">{{jobItem.jobSalary}} &nbsp;&nbsp;{{jobItem.workExperience}} /
+                                {{jobItem.education}}
+                            </div>
+                            <div class=" col-xs-4"></div>
+                            <div class=" col-xs-4">{{jobItem.companyMainBusiness}} / {{jobItem.companyForm}}</div>
+                        </div>
+                        <div class="JobImformationDesc row">
+                            <div class="JobInformationLeft col-xs-4">
+                                <span class="marginLeft15px" ng-repeat="joblabel in jobItem.workLabels">{{joblabel.labelStr}}</span>
+                            </div>
+                            <div class="JobInformationMid col-xs-4"></div>
+                            <div class="OverflowEllipsis col-xs-4">" {{jobItem.jobAdvantage}} "</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <!--<img src="{{job.companySignal}}"/>-->
+                        <img src="assets/img/companypicsignal.jpg"/>
+                    </div>
+                </div>
+                <!-- 分页 -->
+                <div>
+                    <ul class="pager">
+                        <li ng-repeat="item in pagesTag" class="{{item.clicked ? 'active':''}}">
+                            <a href="javascript:;" ng-click="research('', 'page','',item.number)">{{item.number}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 查询结果  -->
+        </div>
+        <div class="col-xs-3">
+            <div class="RecentScan">
+                <div class="RecentScanTitle">
+                    <span class="">最近浏览过</span>
+                </div>
+                <div class="RecentScanBody">
+                    <div class="RecentScanItem">
+                        <div class="font16black">
+                            Java工程师
+                        </div>
+                        <div class="font16red">
+                            10K-15K
+                        </div>
+                        <div class="font14gray6">
+                            公司名称
+                        </div>
+                    </div>
+                    <div class="RecentScanItem">
+                        <div class="font16black">
+                            Android工程师
+                        </div>
+                        <div class="font16red">
+                            10K-20K
+                        </div>
+                        <div class="font14gray6">
+                            公司名称
+                        </div>
+                    </div>
+                    <div class="RecentScanItem">
+                        <div class="font16black">
+                            前端交互工程师(LUA/PHP)
+                        </div>
+                        <div class="font16red">
+                            10K-12K
+                        </div>
+                        <div class="font14gray6">
+                            公司名称
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 职位筛选条件 -->
+</div>
+<div ng-include="'web/features/intelligence/detail/h5bottomview.html'"></div>

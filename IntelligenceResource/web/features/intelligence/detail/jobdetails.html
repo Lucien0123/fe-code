@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<div ng-include="'web/features/intelligence/detail/h5topview.html'"></div>
+<div class="middiv">
+    <div class="JobDetailsTop row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7 marginLeft30px">
+            <div class="JobPublicDept OverflowEllipsis">{{jobdetail.companyName}} 发布招聘</div>
+            <div class="JobName OverflowEllipsis">{{jobdetail.jobName}}</div>
+            <div class="JobInforContent OverflowEllipsis row">
+                <div class=" col-xs-4">{{jobdetail.jobSalary}} &nbsp;/&nbsp;{{jobdetail.worktype}}&nbsp;/&nbsp;{{jobdetail.workExperience}} &nbsp;/&nbsp;{{jobdetail.education}}&nbsp;/&nbsp;{{jobdetail.jobCateName}}</div>
+                <div class=" col-xs-4"></div>
+                <div class=" col-xs-4"></div>
+            </div>
+            <div class="JobInformationLeft">
+                <span class="marginLeft15px" ng-repeat="label in jobdetail.workLabels">{{label.labelStr}}</span>
+            </div>
+            <!--  标签 -->
+            <div class="JobInformationMid margintop10px">
+                {{jobdetail.publishTime}}&nbsp;发布于园区智力资源管理中心
+            </div>
+            <!-- 发布时间 -->
+        </div>
+        <div class="col-xs-3">
+            <div class="JobPublicDept OverflowEllipsis"></div>
+            <div class="SendResume OverflowEllipsis">
+                <button class="btn btn-lg marginLeft50px" type="button" ng-click="sendResume(jobdetail)">&nbsp;&nbsp;投个简历&nbsp;&nbsp;</button>
+            </div>
+            <div class="ChooseResume marginLeft50px">
+                <label class="radio-inline">
+                    <input type="radio" name="radioOptionsExample" ng-model="resumeType" ng-value="access">
+                    <a class="ResumeStyle" href="javascript:;"><i class="icon icon-paper-clip"></i>&nbsp;附件简历.pdf</a>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <!-- 工作详情页——头 -->
+    <div class="JobDetailsMid row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7 marginLeft30px borderrightdashed">
+            <h3>职位诱惑(固定)</h3>
+            <div class="JobContentFontStyle">
+                {{jobdetail.jobAdvantage}}
+            </div>
+            <h3>职位描述(固定)</h3>
+            <h4>&nbsp;岗位职责(固定)</h4>
+            <div class="JobContentFontStyle">
+                <ol>
+                    <li ng-repeat="jobStatement in jobdetail.jobStatement"> {{jobStatement.labelStr}} </li>
+                </ol>
+            </div>
+            <h4>&nbsp;任职要求(固定)</h4>
+            <div class="JobContentFontStyle">
+                <ol>
+                    <li ng-repeat="demand in jobdetail.demand"> {{demand.labelStr}}</li>
+                </ol>
+            </div>
+            <h3>工作地址(固定)</h3>
+            <div class="JobContentFontStyle">
+                天津 - 西青区 - 产业园区
+            </div>
+            <br/>
+            <h3>面试评价(固定)<a class="font14green marginLeft15px" href="#" style="text-decoration: none;">更多</a></h3>
+            <hr/>
+            <div class="row paddingright20px AssessPanel borderbottomdashed">
+                <div class="col-xs-1">
+                    <div><img src="assets/images/nonamepic.jpg"/></div>
+                    <div class="margintop10px">{{"达康书记"}}</div>
+                </div>
+                <div class="col-xs-11">
+                    <div class="row marginLeft15px">
+                        <span class="font14gray6">描述相符</span>
+                        <span class="font14green">
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                        </span>
+                        <span class="font14gray6 marginLeft15px">面试官</span>
+                        <span class="font14green">
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star-empty"></i>
+                        </span>
+                        <span class="font14gray6 marginLeft15px">公司环境</span>
+                        <span class="font14green">
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star-empty"></i>
+                            <i class="icon icon-star-empty"></i>
+                        </span>
+                        <span class="font14gray6 marginLeft15px">{{"2017-5-3"}}</span>
+                    </div>
+                    <div class="JobInformationLeft">
+                        <span class="marginLeft15px" >{{"面试官大牛"}}</span>
+                        <span class="marginLeft15px" >{{"面试效率高"}}</span>
+                        <span class="marginLeft15px" >{{"学到很多东西"}}</span>
+                    </div>
+                    <div class="marginLeft15px">
+                        <div>
+                            <span class="font14black">[面试过程]&nbsp;</span>
+                            <span class="font14gray6">{{"面试学到了很多东西，我比较注重机会，相信如果入职会学到很多吧。不过薪酬我觉得不算特别高，好在不加班也稳定，还可以吧"}}</span>
+                        </div>
+                        <div>
+                            <span class="font14black">[其他评价]&nbsp;</span>
+                            <span class="font14gray6">{{"面试比较概念性和发散，前沿技术很重要，不错的选择"}}</span>
+                        </div>
+                    </div>
+                    <div class="Agreement marginLeft15px margintop10px">
+                        <a ng-if="canApprove" href="javascript:;" ng-click="approveJobAppraise(mostUsefulJobAppraise.appraiseId)" class="JobInformationLeft" style="text-decoration: none;">有用({{"12"}})</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row paddingright20px AssessPanel borderbottomdashed">
+                <div class="col-xs-1">
+                    <div><img src="assets/images/nonamepic.jpg"/></div>
+                    <div class="margintop10px">{{"育良书记"}}</div>
+                </div>
+                <div class="col-xs-11">
+                    <div class="row marginLeft15px">
+                        <span class="font14gray6">描述相符</span>
+                        <span class="font14green">
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star-empty"></i>
+                        </span>
+                        <span class="font14gray6 marginLeft15px">面试官</span>
+                        <span class="font14green">
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star-empty"></i>
+                        </span>
+                        <span class="font14gray6 marginLeft15px">公司环境</span>
+                        <span class="font14green">
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star"></i>
+                            <i class="icon icon-star-empty"></i>
+                        </span>
+                        <span class="font14gray6 marginLeft15px">{{"2017-5-3"}}</span>
+                    </div>
+                    <div class="JobInformationLeft">
+                        <span class="marginLeft15px" >{{"环境一般般"}}</span>
+                        <span class="marginLeft15px" >{{"实际动手能力"}}</span>
+                    </div>
+                    <div class="marginLeft15px">
+                        <div>
+                            <span class="font14black">[面试过程]&nbsp;</span>
+                            <span class="font14gray6">{{"很注重动手能力 面试过程直接写了一个简单的功能出来"}}</span>
+                        </div>
+                        <div>
+                            <span class="font14black">[其他评价]&nbsp;</span>
+                            <span class="font14gray6">{{"创业型公司，上机能力强就要你。所以说面试之前好好准备好增删改查之类的吗"}}</span>
+                        </div>
+                    </div>
+                    <div class="Agreement marginLeft15px margintop10px">
+                        <a ng-if="canApprove" href="javascript:;" ng-click="approveJobAppraise(mostUsefulJobAppraise.appraiseId)" class="JobInformationLeft" style="text-decoration: none;">有用({{"10"}})</a>
+                        <a ng-if="!canApprove" href="javascript:;" ng-click="approveJobAppraise(mostUsefulJobAppraise.appraiseId)" class="JobInformationLeft" style="text-decoration: none; color: #666666;">有用({{"10"}})</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /面试评价，只显示最有用的一条 -->
+        </div>
+        <div class="col-xs-3 paddingleft30px">
+            <div>
+                <!--<img src="{{jobdetail.companySignal}}" style="border: 1px solid #DDDDDD;"/>-->
+                <img src="assets/img/companypicsignal.jpg" style="border: 1px solid #DDDDDD;"/>
+                <a class="font16gray3" href="javascript:;" style="cursor: pointer;" ng-click="toCompanyPage(jobdetail.companyId)">{{jobdetail.companyName}}</a>
+            </div>
+            <div class="font14gray6 margintop10px row">
+                <div class="col-xs-1"><i class="icon icon-th-large"></i></div>
+                <div class="col-xs-11">{{jobdetail.companyMainBusiness}}</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-line-chart"></i>
+                </div>
+                <div class="col-xs-11">{{jobdetail.companyForm}}</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-dollar"></i>
+                </div>
+                <div class="col-xs-11">{{'产业园区'}}</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-group"></i>
+                </div>
+                <div class="col-xs-11">{{jobdetail.staffScale}}</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-link"></i>
+                </div>
+                <div class="col-xs-11">
+                    公司首页 <a class="font14gray6" href="{{jobdetail.compHomepageLink}}">{{jobdetail.compHomepageLink}}</a>
+                </div>
+            </div>
+            <!-- 公司信息 -->
+            <div class="SimilarPosition margintop10px">
+                <h3>相似职位</h3>
+                <div class="SimilarPositionInfor row">
+                    <div class="col-xs-4" style="padding-right: 0px;">
+                        <img src="assets/img/companypicsignal.jpg"/>
+                    </div>
+                    <div class="col-xs-8" style="padding-left: 0px;">
+                        <div class="SimilarPositionName OverflowEllipsis">
+                            LUA服务器
+                        </div>
+                        <div class="SimilarPositionSalary OverflowEllipsis">
+                            10K~20K
+                        </div>
+                        <div class="SimilarPositionAddress OverflowEllipsis">
+                            *号楼*室
+                        </div>
+                    </div>
+                </div>
+                <div class="SimilarPositionInfor row">
+                    <div class="col-xs-4" style="padding-right: 0px;">
+                        <img src="assets/img/companypicsignal.jpg"/>
+                    </div>
+                    <div class="col-xs-8" style="padding-left: 0px;">
+                        <div class="SimilarPositionName OverflowEllipsis">
+                            LUA服务器
+                        </div>
+                        <div class="SimilarPositionSalary OverflowEllipsis">
+                            10K~20K
+                        </div>
+                        <div class="SimilarPositionAddress OverflowEllipsis">
+                            *号楼*室
+                        </div>
+                    </div>
+                </div>
+                <div class="SimilarPositionInfor row">
+                    <div class="col-xs-4" style="padding-right: 0px;">
+                        <img src="assets/img/companypicsignal.jpg"/>
+                    </div>
+                    <div class="col-xs-8" style="padding-left: 0px;">
+                        <div class="SimilarPositionName OverflowEllipsis">
+                            LUA服务器LUA服务器LUA服务器
+                        </div>
+                        <div class="SimilarPositionSalary OverflowEllipsis">
+                            10K~20K
+                        </div>
+                        <div class="SimilarPositionAddress OverflowEllipsis">
+                            *号楼*室
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /同公司招聘 -->
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <!-- 工作详情页——中 -->
+</div>
+<div ng-include="'web/features/intelligence/detail/h5bottomview.html'"></div>
+

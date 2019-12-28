@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<style>
+    body{
+        background-color: #333333;
+        background-image: url("assets/images/loginback.jpg");
+    }
+    .UserlogingDiv {
+        width: 425px;
+        height: 320px;
+        margin-right: 220px;
+        margin-top: 8%;
+        float: right;
+        background-color: #eee;
+        border: 1px solid #999;
+    }
+
+    .errorMsgSpan {
+        margin-left: 25px;
+        position: absolute;
+        z-index: 3;
+    }
+</style>
+<!-- 定义js控制当获取鼠标焦点时上移一小段距离的动画 -->
+<div class="UserlogingDiv">
+    <div class="LogingHeadDiv">
+        <span class="font20gray3">账号密码登录</span>
+    </div>
+    <!--登录表单-->
+    <div class="logininput">
+        <input ng-model="account" class="form-control form-focus input-lg"
+               autofocus type="text" placeholder="  请输入账号"/> &nbsp;
+        <input ng-model="password" class="form-control form-focus input-lg"
+            type="password" placeholder="  请输入密码"/>
+    </div>
+
+    <div class="LoginButton">
+        <button class="btn btn-primary submitbutton150" ng-click="commonLogin()">
+            登录
+        </button>
+        <span class="form-group marginLeft15px" ng-if="errmsg != ''">
+            <span class="alert alert-danger">{{errmsg}}</span>
+        </span>
+    </div>
+    <!--/登录表单-->
+
+    <!--登录帮助-->
+    &nbsp;
+    <div align="right">
+        <a href="javascript:;" name="logingHerf">忘记密码？</a>&nbsp; | &nbsp;<a
+            href="javascript:;" ng-click="toRegisterPage()">注册新账号</a>&nbsp; | &nbsp;<a
+            href="javascript:;" ng-click="toHomePage()"> 返回主页>></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <!--/登录帮助-->
+</div>
+<!--手机型号连接，上移动画-->
+<div class="LoginLinkDiv" align="center">
+    <table cellspacing="0" cellpadding="0">
+        <tr align="center">
+            <td>
+                <div id="apple1" class="apple1">
+                    <a href="javascript:;" name="iphone">
+                        <i class="icon icon-apple icon-2x"></i>
+                        <br/>iphone
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div id="apple2" class="apple1">
+                    <a href="javascript:;" name="iphone">
+                        <i class="icon icon-desktop icon-2x"></i>
+                        <br/>iMac
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div id="apple3" class="apple1">
+                    <a href="javascript:;" name="iphone">
+                        <i class="icon icon-android icon-2x"></i>
+                        <br/>Android
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div id="apple4" class="apple1">
+                    <a href="javascript:;" name="iphone">
+                        <i class="icon icon-windows icon-2x"></i>
+                        <br/>Windows<br/>Phone
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div id="apple5" class="apple1">
+                    <a href="javascript:;" name="iphone">
+                        <i class="icon icon-tablet icon-2x"></i>
+                        <br/>其他设备
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--/手机型号连接，上移动画-->

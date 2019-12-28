@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<div ng-include="'web/features/intelligence/detail/h5topview.html'"></div>
+<div class="middiv">
+    <div class="CompanyPageTop row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10 marginLeft30px marginRight30px">
+            <div class="CompanySignal row">
+                <div class="CompanyPicSignal col-xs-2" align="center">
+                    <!--<img class="CompanyPicSize" src="{{comBaseInfor.companySignal}}"/>-->
+                    <img class="CompanyPicSize" src="assets/img/companypicsignal.jpg"/>
+                </div>
+                <div class="col-xs-10">
+                    <div class="CompanyInforSignal">
+                        <div>
+                            <span class="font24black">{{comBaseInfor.companyName}}</span>
+                            <span><i class="icon icon-link marginLeft10px"></i></span>
+                            <span class="AuthenticPassed marginLeft15px"><i
+                                    class="icon icon-checked"></i>&nbsp;通过认证</span>
+                        </div>
+                        <div>
+                            <span class="font14gray6">{{comBaseInfor.companyDesc}}</span>
+                        </div>
+                    </div>
+                    <div class="CompanyData row">
+                        <div class="CompanyDataItem col-xs-2" align="center">
+                            <span class="font20gray3" style="display: block;">{{comBaseInfor.recruiteJobsCount}}个</span>
+                            <span class="font14gray6">招聘职位</span>
+                        </div>
+                        <div class="CompanyDataItem col-xs-2" align="center">
+                            <span class="font20gray3" style="display: block;">{{comBaseInfor.questionCount}}个</span>
+                            <span class="font14gray6">面试评价</span>
+                        </div>
+                        <div class="CompanyDataItem col-xs-2" align="center">
+                            <span class="font20gray3" style="display: block;">今天</span>
+                            <span class="font14gray6">企业最近登录</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 公司信息部分 -->
+            <div>
+                <ul class="nav nav-secondary navspan" style="margin-bottom: 0px;">
+                    <li class="active">
+                        <a href="javascript:;" style="padding: 0px 10px;" data-target="#tabContent2" data-toggle="tab">招聘职位({{comBaseInfor.recruiteJobsCount}})</a>
+                    </li>
+                    <li class="marginLeft30px">
+                        <a href="javascript:;" style="padding: 0px 10px;" data-target="#tabContent1" data-toggle="tab">公司问答</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <!-- 公司页面头部 -->
+    <div class="CompanyContentBody row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7 marginLeft30px borderrightdashed tab-content">
+            <div class="CompanyQuestionBody tab-pane fade" id="tabContent1">
+                <div class="font16gray3">
+                    这家公司怎么样？大家都有怎样的好奇？来言职社区看看吧～
+                </div>
+                <hr/>
+                <div class="QuestionItem" ng-repeat="question in comQuestions">
+                    <div class="font20green row">
+                        <div class="col-xs-10">
+                            <a class="font20green" href="javascript:;" style="text-decoration: none;" ng-click="showQuestion(question)">{{question.questionContent}}</a>
+                        </div>
+                        <div class="col-xs-2 font14gray6">{{question.quizDate}}</div>
+                    </div>
+                    <div class="font14gray6">
+                        <span>{{question.answerCount}}个回答·1人关注</span>
+                    </div>
+                </div>
+
+                <div class="SendQuestion margintop30px">
+                    <div class="font20gray3">
+                        提出对一起写感兴趣的问题，邀请过来人帮你解答~
+                    </div>
+                    <div class="margintop20px">
+                        <input type="text" class="form-control" style="height: 43px;" placeholder="请输入您想提问的内容" ng-model="askQuestion">
+                    </div>
+                    <div class="margintop20px">
+                        <button class="btn btn-primary btn-lg submitbutton150" type="button" ng-click="askQuestionAction()">提问</button>
+                    </div>
+                 </div>
+            </div>
+            <!-- 公司问答模块(显示或者隐藏) -->
+            <div class="CompanyPositionBody tab-pane fade active in" id="tabContent2">
+                <div class="font20gray3">
+                    近期共有 <span class="font20green">{{comBaseInfor.recruiteJobsCount}}</span>&nbsp;个在招职位
+                </div>
+                <hr/>
+                <div class="PositionItem" ng-repeat="job in comRecuriteJobs">
+                    <div class="PositionName row">
+                        <div class="col-xs-10 font20green">
+                            <a class="font20green" href="javascript:;" style="text-decoration: none;cursor: pointer;" ng-click="toJobDetail(job)">{{job.jobName}}</a>
+                        </div>
+                        <div class="col-xs-2 font14gray6 margintop10px">
+                            {{job.publishTime}}
+                        </div>
+                    </div>
+                    <div class="PositionDemands row">
+                        <div class="col-xs-2 font16red">
+                            {{job.jobSalary}}
+                        </div>
+                        <div class="col-xs-10 font14black">
+                            {{job.workExperience}} / {{job.education}} / {{job.worktype}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 公司招聘职位模块(显示或者隐藏) -->
+        </div>
+        <div class="col-xs-3">
+            <div class="margintop20px">
+                <img src="assets/img/companypicsignal.jpg" style="max-width: 70px; border: 1px solid #DDDDDD;"/>
+                <a class="font16gray3" href="javascript:;">{{comBaseInfor.companyName}}</a>
+            </div>
+            <div class="font14gray6 margintop10px row">
+                <div class="col-xs-1"><i class="icon icon-th-large"></i></div>
+                <div class="col-xs-11">{{comBaseInfor.companyMainBusiness}}</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-line-chart"></i>
+                </div>
+                <div class="col-xs-11">{{comBaseInfor.companyForm}}</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-dollar"></i>
+                </div>
+                <div class="col-xs-11">投资机构</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-group"></i>
+                </div>
+                <div class="col-xs-11">人员规模({{comBaseInfor.companyStaffScale}})</div>
+            </div>
+            <div class="font14gray6 row">
+                <div class="col-xs-1">
+                    <i class="icon icon-link"></i>
+                </div>
+                <div class="col-xs-11">
+                    公司首页  <a class="font14gray6" href="javascript:;">{{comBaseInfor.companyHomepageLink}}</a>
+                </div>
+            </div>
+            <!-- 公司信息 -->
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+</div>
+<div ng-include="'web/features/intelligence/detail/h5bottomview.html'"></div>

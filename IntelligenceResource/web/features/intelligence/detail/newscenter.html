@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<div ng-include="'web/features/intelligence/detail/h5topview.html'"></div>
+<div class="middiv">
+    <div class="JobDetailsMid row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-7 marginLeft30px borderrightdashed">
+            <h2>园区通知公告</h2>
+            <hr style="height: 3px; background-color: #00B38A;" />
+            <br/>
+            <hr />
+            <div class="paddingright20px borderbottomdashed AssessPanel">
+                <div class="row NewsItem" ng-repeat="news in newsList">
+                    <div class="col-xs-1 margintop20px" align="center">
+                        <div style="color: #00B38A;"><i class="icon icon-globe icon-2x"></i></div>
+                        <div style="font-size:16px; font-weight:bold; color: #00B38A;">NEWS</div>
+                    </div>
+                    <div class="col-xs-11">
+                        <div class="NewsItemLabels marginLeft30px">
+                            <span class="labelgreenradius20 marginRight15px">园区新闻公告</span>
+                            <span class="labelgreenradius20 marginRight15px">{{news.companyName}}</span>
+                        </div>
+                        <div class="marginLeft10px row">
+                            <div class="col-lg-10 font18boldgrey3line50" style="cursor: pointer;" ng-click="toNewsDetailsPage(news)">
+                                {{news.newsTitle}}
+                            </div>
+                            <!-- 新闻标题 -->
+                            <div class="col-lg-2 font16greenline50">
+                                {{news.publicDate}}
+                            </div>
+                            <!-- 发布时间 -->
+                        </div>
+                        <div class="marginLeft30px">
+                            <span class="font14gray6">{{news.companyName}}</span>
+                            <span class="font14green marginLeft30px">浏览了{{news.viewCount}}次</span>
+                            <!-- 浏览次数 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 面试评价，只显示最有用的一条 -->
+        </div>
+        <div class="col-xs-3 paddingleft30px">
+            <h3>热点新闻</h3>
+            <br />
+            <div class="HotNewsItem">
+                <div class="font16gray3line35 OverflowEllipsis" style="cursor: pointer;">
+                    关于召开2017年夏季招聘会通知
+                </div>
+                <!-- 新闻标题 -->
+                <div class="font14gray6 OverflowEllipsis">
+                    天津产业园区
+                </div>
+                <!-- 发布公司名称 -->
+            </div>
+            <div class="HotNewsItem">
+                <div class="font16gray3line35 OverflowEllipsis">
+                    天津互联网有限公司拟定2017年7月23日在园区进行现场招聘
+                </div>
+                <!-- 新闻标题 -->
+                <div class="font14gray6 OverflowEllipsis">
+                    天津互联网有限公司
+                </div>
+                <!-- 发布公司名称 -->
+            </div>
+            <div class="HotNewsItem">
+                <div class="font16gray3line35 OverflowEllipsis">
+                    响应天津市政府号召，天津产业园区正积极扩大规模，现正向全社会范围内吸纳企业入驻
+                </div>
+                <!-- 新闻标题 -->
+                <div class="font14gray6 OverflowEllipsis">
+                    天津产业园区
+                </div>
+                <!-- 发布公司名称 -->
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <!-- 工作详情页——中 -->
+</div>
+<div ng-include="'web/features/intelligence/detail/h5bottomview.html'"></div>

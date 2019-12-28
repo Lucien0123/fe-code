@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<div ng-include="'web/features/intelligence/detail/h5topview.html'" xmlns="http://www.w3.org/1999/html"></div>
+<div class="middiv">
+    <div class="ReplyCompanyQuestion row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-8">
+            <div class="QuestionItemLabel">
+                <span class="labelgreenradius20 marginRight15px" ng-repeat="lebelItem in question.questionLabels">{{lebelItem.labelStr }}</span>
+            </div>
+            <div class="QuestionContent">
+                {{question.questionContent}}
+            </div>
+            <div class="ReplyButton">
+                <a class="btn btn-primary submitbutton150 font20white" href="javascript:;">我要回答</a>
+            </div>
+            <hr/>
+            <div class="FirstReply row" ng-repeat="reply in question.replyList">
+                <div class="col-xs-1 ReplierPortrait">
+                    <div style="width: 100%;" align="center">
+                        <img src="assets/images/nonamepic.jpg"/>
+                    </div>
+                    <div class="font14gray6" style="width: 100%;" align="center">
+                        <i class="icon icon-thumbs-up"></i>
+                    </div>
+                    <div class="font14black" style="width: 100%;" align="center">
+                        22
+                    </div>
+                </div>
+                <div class="col-xs-11">
+                    <div class="ReplierInfor row">
+                        <div class="col-xs-2 font16gray3line35">{{reply.firReplierName}}</div>
+                        <div class="col-xs-8 font14gray6">{{reply.firReplierOccupation}}</div>
+                        <div class="col-xs-2 font14gray6">{{reply.firCommentDate}}</div>
+                    </div>
+                    <div class="ReplyContent font16gray3">
+                        {{reply.firCommentContent}}
+                    </div>
+                    <div class="DateAndSecondReply">
+                        <span class="font14gray6">{{reply.firCommentDate}}</span>
+                        <span class="font14green marginLeft30px">
+                            <a class="font14green" style="text-decoration: none;" href="javascript:;" ng-click="setSecondReply(reply.firCommentId, reply.firReplierAccount)" data-toggle="modal"
+                               data-target="#ReplyDialog">
+                                <i class="icon icon-chat-dot"></i>&nbsp;&nbsp;回复
+                            </a>
+                        </span>
+                    </div>
+                    <!-- /回复一级 -->
+                    <div class="SecondReply">
+                        <div class="SecondReplyItem" ng-repeat="secondReply in reply.secondComment">
+                            <span class="font14gray9">{{secondReply.secReplier}}</span>
+                            <span class="font14black">回复</span>
+                            <span class="font14gray9">{{secondReply.secBeReplier}}</span>
+                            <span class="font14gray9 marginRight5px">:</span>
+                            <span class="font14gray6 marginRight5px">{{secondReply.secReplyContent}}</span>
+                            <span class="font14gray9 marginRight5px">
+                                <a class="font14green" style="text-decoration: none;" href="javascript:;"
+                                   ng-click="setSecondReply(secondReply.firCommentId, secondReply.secReplierAccount)"
+                                   data-toggle="modal"
+                                   data-target="#ReplyDialog">
+                                    <i class="icon icon-chat-dot"></i>&nbsp;&nbsp;回复
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /回复二级 -->
+                </div>
+            </div>
+            <!-- /一级回复条目  -->
+            <!-- /评论输入 -->
+            <div class="CommentArea">
+                <div class="Commenter row">
+                    <div class="col-xs-2 font20gray3line55">
+                        <br>我的回复</br>
+                    </div>
+                </div>
+                <div class="margintop10px">
+                    <textarea id="contentSimple" name="content" class="form-control kindeditorSimple"
+                              style="height:150px;" ng-model="replyContent1"></textarea>
+                </div>
+                <div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/> 匿名回复
+                        </label>
+                    </div>
+                </div>
+                <div class="margintop20px">
+                    <button class="btn btn-primary submitbutton150" type="button" ng-click="replyAction('FIRSTREPLY')">提交</button>
+                </div>
+            </div>
+            <!-- /回复问题 -->
+        </div>
+        <div class="col-xs-3">
+
+        </div>
+        <!-- 相关问题  -->
+    </div>
+</div>
+<div class="buttomdiv"></div>
+<div class="modal fade" id="ReplyDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">关闭</span>
+                </button>
+                <h4 class="modal-title">回复{{beReplierName}}</h4>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" rows="3" placeholder="请输入您的回复" ng-model="replyContent2"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="submitBtn" class="btn btn-primary" style="min-width: 80px" ng-click="replyAction('SECONDREPLY')" data-dismiss="modal">回复</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'web/features/intelligence/detail/h5bottomview.html'"></div>

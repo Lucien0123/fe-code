@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<div ng-include="'web/features/intelligence/detail/h5topview.html'"></div>
+<div class="middiv">
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-2 marginLeft30px">
+            <div class="JobCategory" ng-repeat="cate in cates">
+                <div class="JobCategoryTitle row">
+                    <div class="col-xs-10">{{cate.pcate}}</div>
+                    <div class="col-xs-2"><i class="icon icon-chevron-right"></i></div>
+                </div>
+                <div class="JobCategoryContent">
+                    <a href="javascript:;" style="padding: 3px 10px 3px 0px;" ng-repeat="item in cate.childcates" ng-click="toJobList(item)">{{item.cateStr}}</a>&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+        <!-- /首页中部左侧工作类别导航  -->
+        <div class="col-xs-7 marginLeft15px">
+            <div class="input-group width70per">
+                <input type="text" class="form-control input-lg" ng-model="searchCondition">
+                <span class="input-group-btn">
+    				<button class="btn btn-default width100px btn-lg" type="button" ng-click="searchJobs()">搜索</button>
+  				</span>
+            </div>
+            <!-- 搜索栏 -->
+            <div class="HotSearch">
+                <span>热门搜索：</span>
+                <a class="HotSearchContent" href="javascript:;" ng-repeat="item in hotSearch" ng-click="toJobList(item)">{{item.cateStr}}</a>
+            </div>
+            <!-- /热门搜索  -->
+            <br>
+            <div class="row" style="height: 195px">
+                <!-- 轮播项目 -->
+                <div class="col-xs-9">
+                    <div class="SwaperItem" ng-hide="hideSwaper[0]">
+                        <img alt="First slide" src="http://zui.sexy/docs/img/slide1.jpg">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="SwaperItem" ng-hide="hideSwaper[1]">
+                        <img alt="Second slide" src="http://zui.sexy/docs/img/slide2.jpg">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="SwaperItem" ng-hide="hideSwaper[2]">
+                        <img alt="Third slide" src="http://zui.sexy/docs/img/slide3.jpg">
+                        <div class="carousel-caption">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 图片区域 -->
+                <div class="col-xs-3">
+                    <div ng-class="{'SwaperLinkitemBorder':hideSwaper[0],'SwaperLinkitemBorderHover':!hideSwaper[0]}" ng-mouseover="showSwaper(0)">
+                        <img src="http://zui.sexy/docs/img/slide1.jpg">
+                    </div>
+                    <div ng-class="{'SwaperLinkitemBorder':hideSwaper[1],'SwaperLinkitemBorderHover':!hideSwaper[1]}" ng-mouseover="showSwaper(1)">
+                        <img src="http://zui.sexy/docs/img/slide2.jpg">
+                    </div>
+                    <div ng-class="{'SwaperLinkitemBorder':hideSwaper[2],'SwaperLinkitemBorderHover':!hideSwaper[2]}" ng-mouseover="showSwaper(2)">
+                        <img src="http://zui.sexy/docs/img/slide3.jpg">
+                    </div>
+                </div>
+                <!-- 小图链接区域，鼠标覆盖则切换 -->
+            </div>
+            <!-- /轮播图 -->
+            <div></div>
+
+            <!-- /图片链接 -->
+            <ul class="nav nav-tabs margintop10px">
+                <li class="active">
+                    <a href="javascript:;" data-target="#tabContent1" data-toggle="tab">推荐职位</a>
+                </li>
+                <li>
+                    <a href="javascript:;" data-target="#tabContent2" data-toggle="tab">热门职位</a>
+                </li>
+                <li>
+                    <a href="javascript:;" data-target="#tabContent3" data-toggle="tab">最新职位</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="tabContent1">
+                    <div class="JobImformation" ng-repeat="jobItem in recommentJobs">
+                        <div class="JobImformationTitle row">
+                            <div class="JobInformationLeft cursorpointer col-xs-4" ng-click="toJobDetail(jobItem)">{{jobItem.jobName}}</div>
+                            <div class="JobInformationMid col-xs-4">{{jobItem.publicTime}}</div>
+                            <div class="JobInformationRight cursorpointer col-xs-4" style="cursor: pointer;" ng-click="toCompanyPage(jobItem.companyId)">{{jobItem.companyName}}</div>
+                        </div>
+                        <div class="JobImformationContent row">
+                            <div class=" col-xs-4">{{jobItem.jobSalary}} &nbsp;&nbsp;{{jobItem.workExperience}} /
+                                {{jobItem.education}}
+                            </div>
+                            <div class=" col-xs-4"></div>
+                            <div class=" col-xs-4">{{jobItem.companyMainBusiness}} / {{jobItem.companyForm}}</div>
+                        </div>
+                        <div class="JobImformationDesc row">
+                            <div class="JobInformationLeft col-xs-7 OverflowEllipsis">
+                                <span class="marginLeft15px" ng-repeat="joblabel in jobItem.workLabels">{{joblabel.labelStr}}</span>
+                            </div>
+                            <div class="JobInformationMid col-xs-1"></div>
+                            <div class="OverflowEllipsis col-xs-4">“{{jobItem.jobAdvantage}}”</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /推荐工作 -->
+                <div class="tab-pane fade" id="tabContent2">
+                    <div class="JobImformation" ng-repeat="jobItem in hotJobs">
+                        <div class="JobImformationTitle row">
+                            <div class="JobInformationLeft cursorpointer col-xs-4" ng-click="toJobDetail(jobItem)">{{jobItem.jobName}}</div>
+                            <div class="JobInformationMid col-xs-4">{{jobItem.publicTime}}</div>
+                            <div class="JobInformationRight cursorpointer col-xs-4" style="cursor: pointer;" ng-click="toCompanyPage(jobItem.companyId)">{{jobItem.companyName}}</div>
+                        </div>
+                        <div class="JobImformationContent row">
+                            <div class=" col-xs-4">{{jobItem.jobSalary}} &nbsp;&nbsp;{{jobItem.workExperience}} /
+                                {{jobItem.education}}
+                            </div>
+                            <div class=" col-xs-4"></div>
+                            <div class=" col-xs-4">{{jobItem.companyMainBusiness}} / {{jobItem.companyForm}}</div>
+                        </div>
+                        <div class="JobImformationDesc row">
+                            <div class="JobInformationLeft col-xs-7 OverflowEllipsis">
+                                <span class="marginLeft15px" ng-repeat="joblabel in jobItem.workLabels">{{joblabel.labelStr}}</span>
+                            </div>
+                            <div class="JobInformationMid col-xs-1"></div>
+                            <div class="OverflowEllipsis col-xs-4">“{{jobItem.jobAdvantage}}”</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /热门工作 -->
+                <div class="tab-pane fade" id="tabContent3">
+                    <div class="JobImformation" ng-repeat="jobItem in recentlyJobs">
+                        <div class="JobImformationTitle row">
+                            <div class="JobInformationLeft cursorpointer col-xs-4" ng-click="toJobDetail(jobItem)">{{jobItem.jobName}}</div>
+                            <div class="JobInformationMid col-xs-4">{{jobItem.publicTime}}</div>
+                            <div class="JobInformationRight cursorpointer col-xs-4" style="cursor: pointer;" ng-click="toCompanyPage(jobItem.companyId)">{{jobItem.companyName}}</div>
+                        </div>
+                        <div class="JobImformationContent row">
+                            <div class=" col-xs-4">{{jobItem.jobSalary}} &nbsp;&nbsp;{{jobItem.workExperience}} /
+                                {{jobItem.education}}
+                            </div>
+                            <div class=" col-xs-4"></div>
+                            <div class=" col-xs-4">{{jobItem.companyMainBusiness}} / {{jobItem.companyForm}}</div>
+                        </div>
+                        <div class="JobImformationDesc row">
+                            <div class="JobInformationLeft col-xs-7 OverflowEllipsis">
+                                <span class="marginLeft15px" ng-repeat="joblabel in jobItem.workLabels">{{joblabel.labelStr}}</span>
+                            </div>
+                            <div class="JobInformationMid col-xs-1"></div>
+                            <div class="OverflowEllipsis col-xs-4">"  {{jobItem.jobAdvantage}}  "</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /最新工作 -->
+            </div>
+        </div>
+        <!-- 首页中部右侧招聘条目  -->
+        <div class="col-xs-2"></div>
+    </div>
+</div>
+<div ng-include="'web/features/intelligence/detail/h5bottomview.html'"></div>

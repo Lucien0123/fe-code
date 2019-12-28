@@ -1,0 +1,548 @@
+/* 通用属性，去掉网页上部和左部的空白区域 */
+body{
+	margin: 0;
+	/*background-color: #006666;*/
+}
+
+.topdiv{
+	width: 100%;
+	min-height: 165px;
+	border-bottom: #CCCCCC solid 1px;
+}
+.middiv{
+	width: 100%;
+	min-height: 300px;
+	margin-top: 30px;
+	padding-bottom: 150px;
+}
+.buttomdiv{
+	width: 100%;
+	min-height: 200px;
+	border-bottom: #CCCCCC solid 1px;
+	background-color: #EBF0EF;
+}
+
+/* --------页面元素css样式----------*/
+
+/* 首页头部样式 */
+.headpicdiv{
+	width: 100%;
+	min-height: 80px;
+}
+.headpicimg{
+	width: 100%;
+	height: auto;
+}
+.headblack{
+	width: 100%;
+	height: auto;
+	background-color: #333333;
+}
+.headspan{
+	height: 30px;
+	width: auto;
+	line-height: 30px;
+	color: #C4C3C3;	
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.navigation{
+	width: 100%;
+	height: auto;
+	background-color: #FAFAFA;
+}
+.navicon{
+	width: 110px;
+	height: 46px;
+	line-height: 55px;
+}
+.navspan{
+	height: 55px;
+	font-size: 18px;
+	line-height: 55px;
+}
+
+/* 首页中部样式  */
+.HotSearch {
+	width: 100%;
+	height: 40px;
+	line-height: 30px;
+	padding: 10px;
+}
+.HotSearchContent {
+	margin-left: 10px;
+	color: #00B38A;
+}
+.JobCategory {
+	width: 100%;
+	padding: 10px;
+	background-color: #FAFAFA;
+}
+.JobCategoryTitle {
+	width: 100%;
+	height: 35px;
+	font-size: 16px;
+}
+.JobCategoryContent {
+	width: 100%;
+	height: auto;
+	line-height: 30px;
+}
+.JobImformation{
+	width: 100%;
+	height: auto;
+	border-bottom: 1px dashed #DDDDDD;
+	padding: 10px 0px 0px 10px;
+}
+.JobImformationTitle{
+	width: 100%;
+	height: 30px;
+	font-size: 14px;
+}
+.JobImformationContent{
+	width: 100%;
+	line-height: 40px;
+}
+.JobImformationDesc{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	background-color: #FAFAFA;
+}
+.JobInformationLeft{
+	font-size: 16px;
+	color: #00B38A;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.JobInformationMid{
+	color: #666666;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.JobInformationRight{
+	font-size: 16px;
+	color: #00B38A;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* 工作详情页样式  */
+.JobDetailsTop {
+	width: 100%;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #EBF0EF;
+}
+.JobDetailsMid {
+	width: 100%;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.JobPublicDept {
+	padding-top: 10px;
+	line-height: 20px;
+}
+.JobName {
+	padding-top: 10px;
+	font-size: xx-large;
+	line-height: 30px;
+}
+.JobInforContent{
+	padding-top: 15px;
+	font-size: 18px;
+	padding-bottom: 10px;
+}
+.SendResume{
+	margin-top: 10px;
+	padding: 10px;
+	font-size: 18px;	
+}
+.ResumeStyle {
+	font-size: 16px;
+	color: #00B38A;
+	text-decoration: none;
+}
+.JobContentFontStyle {
+	padding-top: 5px;
+	color: #333333;
+	font-size: 14px;
+	line-height: 30px;
+}
+.SimilarPositionInfor {
+	width: 100%;
+	height: auto;
+	padding: 10px 5px 5px 0px;
+	border-bottom: 1px dashed #DDDDDD;
+}
+.SimilarPositionName {
+	font-size: 16px;
+}
+.SimilarPositionSalary {
+	font-size: 16px;
+	color: #FF0000;
+}
+.SimilarPositionAddress {
+	color: #CCCCCC;
+}
+.AssessPanel {
+	padding: 15px 10px 10px 10px;
+	margin-right: 10px;
+}
+
+/* 职位搜索列表样式  */
+.SearchResult {
+	width: 100%;
+	height: auto;
+	padding: 20px 0px 10px 0px;
+	background-color: #EBF0EF;
+}
+.ScreenConditions {
+	
+}
+.Conditions {
+	border: 1px solid #C9CBCE;
+}
+.ConditionsAddress {
+	width: 100%;
+	border-bottom: 1px solid #C9CBCE;
+	background-color: #FAFAFA;
+	padding-left: 20px;
+}
+.OtherConditions {
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid #C9CBCE;
+	padding-left: 20px;
+	padding-bottom: 30px;
+}
+.OrderRegulation {
+	width: 100%;
+	padding-left: 20px;
+}
+.ScreenResults {
+	border: 1px solid #C9CBCE;
+	padding: 20px 10px 20px 0px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.RecentScan {
+	width: 90%;
+	padding: 10px 5px 10px 5px;
+	font-size: 18px;
+	background-color: #FAFAFA;
+}
+.RecentScanTitle {
+	width: 100%;
+	padding-left: 5px;
+}
+.RecentScanBody {
+	width: 100%;
+	height: auto;
+	margin-top: 5px;
+	padding-top: 10px;
+}
+.RecentScanItem {
+	width: 100%;
+	height: auto;
+	background-color: #FFFFFF;
+	border-bottom: 1px dashed #C9CBCE;
+	padding: 10px 10px 0px 10px;
+}
+/* 公司页面样式  */
+.CompanyPageTop {
+	width: 100%;
+	height: auto;
+	background-color: #EBF0EF;
+	padding-top: 30px;
+}
+.CompanySignal {
+	width: 100%;
+	height: auto;
+	background-color: #FFFFFF;
+	border: 1px solid #C9CBCE;
+}
+.CompanyPicSignal {
+	height: 100%;
+}
+.CompanyPicSize {
+	width: 100%;
+	height: auto;
+}
+.CompanyInforSignal {
+	width: 100%;
+	padding: 15px;
+	border-left: 1px solid #C9CBCE;
+}
+.CompanyData {
+	width: 100%;
+	padding: 5px 0px 5px 5px;
+	background-color: #FAFAFA;
+	border-left: 1px solid #C9CBCE;
+	margin: 0;
+}
+.AuthenticPassed {
+	font-size: 16px;
+	color: #FFFFFF;
+	background-color: #00B38A;
+	padding: 5px 10px 5px 10px;
+	border-radius: 20px;
+}
+.CompanyDataItem {
+	border-right: 1px solid #C9CBCE;
+}
+.CompanyQuestionBody {
+	width: 100%;
+	padding: 30px 20px 10px 5px;
+}
+.CompanyPositionBody {
+	width: 100%;
+	padding: 30px 20px 10px 5px;
+}
+.QuestionItem {
+	width: 100%;
+	padding: 15px 10px 15px 0px;
+	border-bottom: 1px dashed #C9CBCE;
+}
+.PositionItem {
+	width: 100%;
+	padding: 10px 10px 5px 15px;
+	border: 1px solid #C9CBCE;
+	border-left: 4px solid #00B38A;
+	background-color: #FAFAFA;
+	margin-bottom: 15px;
+}
+
+/* 公司问答回复页面样式  */
+.QuestionItemLabel {
+	width: 100%;
+	padding-top: 20px;
+}
+.QuestionContent {
+	font-size: x-large;
+	color: #333333;
+	padding: 15px 0px 15px 0px;
+}
+.ReplyButton {
+	font-size:20px;
+	color: #FFFFFF;
+}
+.FirstReply {
+	width: 100%;
+	padding: 5px 10px 15px 10px;
+	border-bottom: 1px dashed #C9CBCE;
+}
+.ReplierPortrait {
+	padding: 10px 0 5px 0;
+}
+.ReplierInfor {
+	width: 100%;
+	padding:15px 5px 15px 0px;
+}
+.DateAndSecondReply {
+	width: 100%;
+	padding: 5px 0px 0px 5px;
+}
+.SecondReply {
+	width: 100%;
+	border-top: 1px solid #C9CBCE;
+	background-color: #FAFAFA;
+	padding: 15px;
+}
+.SecondReplyItem {
+	
+}
+
+/* 登录界面样式 */
+.LogingHeadDiv {
+	width:420px;
+	padding-top: 10px;
+	text-align:center;
+}
+.logininput{
+	padding: 30px 30px;
+}
+.LoginButton {
+	margin-top: 10px;
+	padding-left: 30px;
+}
+.LoginLinkDiv {
+	width:100%;
+	height:auto;
+	margin-top:440px;
+	position:absolute;
+	z-index:10;
+}
+.apple1 {
+	width: 70px;
+	height: 60px;
+	position: relative;
+	left: 0px;
+	top: 15px;
+	margin-left: 30px;
+}
+.apple2 {
+	width: 70px;
+	height: 60px;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	margin-left: 30px;
+}
+a[name = "iphone"]:link {
+	text-decoration:none;
+	color:#fff;
+}
+a[name = "iphone"]:hover {
+	color:#fff;
+}
+
+a[name = "iphone"]:visited {
+	text-decoration:none;
+	color:#fff;
+}
+
+a[name = "iphone"]:active {
+	text-decoration:none;
+	color:#666;
+}
+
+.SwaperItem {
+	transition: all linear 0.5s;
+	background-color: #FAFAFA;
+	height: 190px;
+}
+
+.SwaperItem.ng-hide{
+	height: 0;
+}
+.SwaperLinkitemBorderHover {
+	margin-bottom: 2px;
+	border: 2px solid #00B38A;
+}
+.SwaperLinkitemBorder {
+	margin-bottom: 2px;
+	border: 2px solid #FAFAFA;
+}
+/* 个人中心页面 */
+.PersonalCenter{
+	width: 100%;
+	background-color: #FFFFFF;
+	margin-top: 30px;
+}
+.PersonalInfor{
+	border-right: 1px dashed #CCCCCC;
+	padding: 20px 80px 50px 40px;
+
+}
+/* 设置个人照片的大小 */
+.photograph{
+	width: 115px;
+	height: 140px;
+	line-height:140px;
+	background-color: #f1f1f1;
+}
+.imgSize{
+	width: 115px;
+	height: auto;
+}
+.uploadBtnDiv{
+	width: 97px;
+	height: 31px;
+}
+/* 自定义的上传按钮背景31*81(未点击的情况) */
+.uploadBack{
+	width: 81px;
+	height: 31px;
+	background-image: url("../img/uploadbtn.png");
+}
+/* 自定义的上传按钮背景(点击的情况) */
+.uploadBackClick{
+	width: 81px;
+	height: 31px;
+	background-image: url("../img/uploadbtn.png");
+	background-color: #ddd;
+}
+/* 隐藏input输入框，并设置绝对定位到最顶层
+ * 在点击时看到的是背景div的样式，单击的焦点是顶层的input
+ */
+.uploadInputsty{
+	width: 81px;
+	height: 31px;
+	cursor: pointer;
+	position: absolute;
+	top: 140px;
+	margin-left: 8px;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	opacity:0;
+}
+
+.uploadSignalsty{
+	width: 108px;
+	height: 38px;
+	cursor: pointer;
+	position: absolute;
+	top: 10px;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	opacity:0;
+}
+
+/* 新闻中心页面样式 */
+
+.NewsItem {
+	padding: 5px 5px 25px 5px;
+	border-bottom: 1px dashed #DDDDDD;
+}
+.NewsItemLabels {
+	width: 100%;
+	padding-top: 10px;
+}
+.HotNewsItem{
+	padding: 0px 5px 0px 15px;
+	margin-bottom: 15px;
+	border-left: 3px solid #00B38A;
+}
+
+/* 新闻详情页面 */
+.NewsTitle {
+	padding-top: 10px;
+	font-size: x-large;
+	line-height: 30px;
+}
+.NewsDetailsMid {
+	width: 100%;
+	height: auto;
+	padding: 20px 10px 50px 10px;
+}
+
+
+/* 推送消息框 */
+.MessageContent{
+	padding: 10px;
+	border: 1px solid #666666;
+	border-radius: 2px;
+}
+.messageItem{
+	padding: 5px 2px 7px 2px;
+	border-bottom: 1px dashed #E4E4E4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
